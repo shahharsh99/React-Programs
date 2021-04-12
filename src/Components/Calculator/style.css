@@ -1,0 +1,75 @@
+.calculator {
+  border-radius: 20px;
+  border: 10px solid seagreen;
+  display: grid;
+  grid-template:
+    "container container container container" 2fr
+    "num num num num" 4fr
+    / 1fr 1fr 1fr 1fr;
+  width: 350px;
+  height: 500px;
+}
+
+.display-container {
+  grid-area: container;
+  display: grid;
+  grid-template:
+    "input input input input" 1.25fr
+    "display display display clear" 1fr
+    /1fr 1fr 1fr 1fr;
+  height: 100%;
+  width: 100%;
+}
+
+.input-display {
+  grid-area: input;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkgray;
+  color: blue;
+  font-weight: bold;
+}
+.input-display p {
+  width: 100%;
+  word-wrap: break-word;
+  font-family: "Exo", sans-serif;
+}
+
+.display {
+  grid-area: display;
+  padding: 15px;
+  text-align: right;
+  max-width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: darkgray;
+  font-size: 32px;
+  border-top: 1px solid black;
+  font-family: sans-serif;
+}
+.number-pad {
+  grid-area: num;
+  display: grid;
+  grid-template:
+    "seven eight nine add" 1fr
+    "four five six subt" 1fr
+    "one two three mult" 1fr
+    "zero dec equ div" 1fr
+    /1fr 1fr 1fr 1fr;
+}
+
+.calc-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: darkgray;
+  border: 1px solid black;
+  border-right: none;
+  border-bottom: none;
+  font-size: 24px;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: black;
+}
