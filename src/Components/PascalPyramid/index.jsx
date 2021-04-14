@@ -53,22 +53,21 @@ export default class PascalPyramid extends Component {
         this.setState({number : e.target.value})
     }
 
-
     render(){
         console.log(this.generate(this.state.number))
         return (
             <Common title = "Pascal's Triangle">
-            <Button onClick={() => this.props.history.push("/")} variant="outlined" color="secondary" className="m-3">
-                Home
-            </Button>
-            <Divider/>
-            <br/>
+                <Button onClick={() => this.props.history.push("/")} variant="outlined" color="secondary" className="m-3">
+                    Home
+                </Button>
+                <Divider/>
+                <br/>
             <center>
-            <form className="form" noValidate autoComplete="off" onSubmit={this.handleSubmit}>
-                <TextField id="number" label="Enter Number of Rows" name="number" onChange={(e) => this.handleChange(e)}/>
-            </form>
-                <br/>
-                <br/>
+                <form className="form" noValidate autoComplete="off" onSubmit={this.handleSubmit}>
+                    <TextField id="number" label="Enter Number of Rows" name="number" onChange={(e) => this.handleChange(e)}/>
+                </form>
+                    <br/>
+                    <br/>
             {this.state.number === null ? <></> :
                 <table>
                     <tbody>                        
@@ -85,5 +84,4 @@ export default class PascalPyramid extends Component {
         );
     }
 }
-
 

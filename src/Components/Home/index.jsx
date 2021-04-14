@@ -29,7 +29,32 @@ return (
             <u><h1>List of Tasks</h1></u>
             <br/>
         <div className="row">
-            <div className="col">
+            <div className="col col-md-4 col-lg-3 col-sm-12">
+                <Card className={classes.root}>
+                    <CardActionArea onClick={() => history.push("/openlibrary-book-search")}>
+                        <CardMedia
+                        className={classes.media}
+                        image="https://pbs.twimg.com/profile_images/803722648198881280/5hV-C1mN.jpg"
+                        title="Open Library"
+                        />
+                        <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            Open Library
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            {/* Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                            across all continents except Antarctica */}
+                        </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <AccessTime/>
+                        &nbsp;
+                        13 April, 2021
+                    </CardActions>
+                </Card>
+            </div>
+            <div className="col col-md-4 col-lg-3 col-sm-12">
                 <Card className={classes.root}>
                     <CardActionArea onClick={() => history.push("/calculator")}>
                         <CardMedia
@@ -54,7 +79,7 @@ return (
                     </CardActions>
                 </Card>
             </div>
-            <div className="col">
+            <div className="col col-md-4 col-lg-3 col-sm-12">
                 <Card className={classes.root}>
                     <CardActionArea onClick = {() => history.push("/pascal-pyramid")}>
                         <CardMedia
@@ -79,7 +104,7 @@ return (
                     </CardActions>
                 </Card>
             </div>
-            <div className="col">
+            <div className="col col-md-4 col-lg-3 col-sm-12 mt-2">
                 <Card className={classes.root}>
                     <CardActionArea onClick = {() => history.push("/fibonacci-series")}>
                         <CardMedia
