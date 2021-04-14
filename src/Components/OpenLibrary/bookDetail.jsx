@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import Common from '../Common'
+import { Button, Divider } from '@material-ui/core';
 import { bookDetail } from "../../Actions/openLibrary/bookDetail"
 import { authorDetail } from "../../Actions/openLibrary/authorDetail"
 
@@ -44,6 +45,13 @@ render(){
     console.log("&&&&&&&&&&&&&&&&&&&&",this.state.authors);
     return (
         <Common title="Open Library">
+                <Button onClick={() => this.props.history.push("/openlibrary-book-search")} variant="outlined" color="secondary" className="m-3">
+                    Back
+                </Button>
+                <Button onClick={() => this.props.history.push("/")} variant="outlined" color="secondary" className="m-3">
+                    Home
+                </Button>                
+                <Divider/>
                 <div>
                     <table className="table table-light table-hover">
                         <tbody>

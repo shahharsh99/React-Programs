@@ -4,11 +4,8 @@ import React, { Component } from 'react'
 import Common from '../Common'
 import { bookSearch } from "../../Actions/openLibrary/bookSearch"
 import { displayFormErrors } from '../../util';
-import { render } from '@testing-library/react';
-import { Divider } from '@material-ui/core';
 import "./style.css"
-import ReactTooltip from 'react-tooltip';
-import { BookDetail } from './bookDetail';
+import { Button, Divider } from '@material-ui/core';
 
 
 export class BookSearch extends Component {
@@ -38,6 +35,11 @@ render(){
 
     return (
         <Common title="Open Library">
+            <Button onClick={() => this.props.history.push("/")} variant="outlined" color="secondary" className="m-3">
+                    Home
+                </Button>
+                <Divider/>
+                <br/>
                 <div>
                     <Formik
                         enableReinitialize
