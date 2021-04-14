@@ -27,7 +27,11 @@ export class BookSearch extends Component {
 }
 
     handleDetail(key,lending_identifier_s){
+        if(lending_identifier_s !== undefined)
         this.props.history.push(`/openlibrary${key}/${lending_identifier_s}`)
+        else{
+        this.props.history.push(`/openlibrary${key}`)
+        }
     }
 
 render(){

@@ -1,7 +1,7 @@
 import {
-BOOK_DETAIL_REQUEST,
-BOOK_DETAIL_SUCCESS,
-BOOK_DETAIL_FAILURE,
+BOOK_DETAIL_ID_REQUEST,
+BOOK_DETAIL_ID_SUCCESS,
+BOOK_DETAIL_ID_FAILURE,
 } from '../../Types/types';
 
 const initialState = {
@@ -10,21 +10,21 @@ error: null,
 isLoading: false,
 };
 
-const BookDetailReducer = (state = initialState, action) => {
+const BookDetailIdReducer = (state = initialState, action) => {
 switch (action.type) {
-    case BOOK_DETAIL_REQUEST:
+    case BOOK_DETAIL_ID_REQUEST:
     return {
         ...state,
         isLoading: true,
     };
-    case BOOK_DETAIL_SUCCESS:
+    case BOOK_DETAIL_ID_SUCCESS:
     return {
         ...state,
         isLoading: false,
         data: action.data.data,
         error: null,
     };
-    case BOOK_DETAIL_FAILURE:
+    case BOOK_DETAIL_ID_FAILURE:
     return {
         ...state,
         isLoading: false,
@@ -36,4 +36,4 @@ switch (action.type) {
 }
 };
 
-export default BookDetailReducer;
+export default BookDetailIdReducer;

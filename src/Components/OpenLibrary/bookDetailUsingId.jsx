@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import Common from '../Common'
 import { Button, Divider } from '@material-ui/core';
-import { bookDetail } from "../../Actions/openLibrary/bookDetail"
+import { bookDetailId } from "../../Actions/openLibrary/bookDetailId"
 import { authorDetail } from "../../Actions/openLibrary/authorDetail"
 
-export class BookDetail extends Component {
+export class BookDetailId extends Component {
     
     constructor(props){
         super(props);
@@ -17,14 +17,12 @@ export class BookDetail extends Component {
 
     getDetail = async () => {
         console.log(this.props.match.params);
-        await this.props.bookDetail(this.props.match.params.ia).then(()=>{
-            console.log("-----------------",this.props.bookDetailData);
+        await this.props.bookDetailId(this.props.match.params.id).then(()=>{
         })
-    //     await this.props.bookDetail(this.props.match.params.id).then(() => {
-        const { bookDetailData, history } = this.props;
-        if(bookDetailData){
-            {bookDetailData.authors?.map(d => {
-                this.props.authorDetail(d.key).then(() => {
+        const { bookDetailIdData, history } = this.props;
+        if(bookDetailIdData){
+            {bookDetailIdData.authors?.map(d => {
+                this.props.authorDetail(d.author?.key).then(() => {
                     const { authorDetailData, history } = this.props;
                     if(authorDetailData){
                         const authors = [...this.state.authors]
@@ -58,20 +56,20 @@ render(){
                             <tr>
                                 <td>
                                     <center>
-                                        {this.props.bookDetailData.covers?.map(d => {
-                                            return <img src={`http://covers.openlibrary.org/b/id/${d}-L.jpg`} className="m-1"/>
+                                        {this.props.bookDetailIdData.covers?.map(d => {
+                                            return <img src={`http://covers.openlibrary.org/b/id/${d}-M.jpg`} className="m-1"/>
                                         })}
                                     </center>
                                 </td>
                                 <td>
                             <tr>
                                 <th scope="row">Title</th>
-                                <td>{this.props.bookDetailData.title}</td>
+                                <td>{this.props.bookDetailIdData.title}</td>
                             </tr>
-                            <tr>
+                            {/* <tr>
                                 <th scope="row">Full title</th>
-                                <td>{this.props.bookDetailData.full_title}</td>
-                            </tr>
+                                <td>{this.props.bookDetailIdData.full_title}</td>
+                            </tr> */}
                             <tr>
                                 <th scope="row">Authors</th>
                                 {this.state.authors?.map(d => {
@@ -82,40 +80,40 @@ render(){
                                     )
                                 })}
                             </tr>
-                            <tr>
+                            {/* <tr>
                                 <th scope="row">Publishers</th>
-                                {this.props.bookDetailData.publishers?.map(d => {
+                                {this.props.bookDetailIdData.publishers?.map(d => {
                                     return(
                                         <tr>
                                             <td>{d}</td>
                                         </tr>
                                     )
                                 })}
-                            </tr>
-                            <tr>
+                            </tr> */}
+                            {/* <tr>
                                 <th scope="row">Subjects</th>
                                 <td>
-                                    {this.props.bookDetailData.subjects?.map(d => {
+                                    {this.props.bookDetailIdData.subjects?.map(d => {
                                         return <>"{d}", </>
                                     })}
                                 </td>
-                            </tr>
+                            </tr> */}
                             <tr>
                                 <th scope="row">Latest Revision</th>
                                 <td>
-                                    {this.props.bookDetailData.latest_revision}
+                                    {this.props.bookDetailIdData.latest_revision}
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">First Publish Date</th>
                                 <td>
-                                    {this.props.bookDetailData.publish_date}
+                                    {this.props.bookDetailIdData.first_publish_date}
                                 </td>
                             </tr>
                             </td>
                         </tr>
                             <tr className="text-center">
-                                    <a className="btn btn-primary btn-sm mb-4" href={`https://archive.org/details/${this.props.bookDetailData.ocaid}?ref=ol&view=theater`}>Preview</a>
+                                    {/* <a className="btn btn-primary btn-sm mb-4" href={`https://archive.org/details/${this.props.bookDetailIdData.ocaid}?ref=ol&view=theater`}>Preview</a> */}
                             </tr>
                         </tbody>
                     </table>
@@ -129,9 +127,9 @@ render(){
 
 const mapStateToProps = (state) => {
     return {
-        bookDetailLoading: state.bookDetail?.isLoading,
-        bookDetailData: state.bookDetail?.data || [],
-        bookDetailError: state.bookDetail?.error || {}, 
+        bookDetailIdLoading: state.bookDetailId?.isLoading,
+        bookDetailIdData: state.bookDetailId?.data || [],
+        bookDetailIdError: state.bookDetailId?.error || {}, 
 
         authorDetailLoading: state.authorDetail?.isLoading,
         authorDetailData: state.authorDetail?.data || [],
@@ -140,9 +138,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-    bookDetail,
+    bookDetailId,
     authorDetail
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BookDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(BookDetailId);
 
