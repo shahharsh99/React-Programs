@@ -29,7 +29,7 @@ const config = {
 };
 
 return axios
-    .get(`http://openlibrary.org/search.json?title=${value}&limit=20&offset=0`)
+    .get(`https://openlibrary.org/search.json?title=${value}&limit=20&offset=0`)
     .then((data) => {
     console.log("data from action",data)
     dispatch(bookSearchSuccess(data));
